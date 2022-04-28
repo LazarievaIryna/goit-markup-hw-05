@@ -143,6 +143,11 @@ img {
 }
 .header-link {
   color: var(--main-title-color);
+
+  position: relative;
+  display: flex;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link:hover,
 .header-link:focus {
@@ -151,10 +156,24 @@ img {
 .current {
   color: var(--accent-color);
 }
+.current-underline::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+
+  position: absolute;
+  bottom: 0;
+}
+
 .header-contacts-link {
   color: var(--main-text-color);
   display: flex;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-contacts-link:hover,
 .header-contacts-link:focus {
@@ -212,6 +231,8 @@ img {
   line-height: 1.88;
   letter-spacing: 0.06em;
   color: var(--hero-title-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -279,7 +300,31 @@ img {
 .about-list-img:last-child {
   margin-right: 0;
 }
+.about-list-thumb {
+  position: relative;
+}
 
+.thumb {
+  position: absolute;
+  display: block;
+  width: 370px;
+  height: 70px;
+  text-align: center;
+  align-items: center;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  top: 224px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.about-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--hero-title-color);
+}
 /* ---------------------TEAM--------------------- */
 .team-container {
   padding-top: 30px;
@@ -329,6 +374,9 @@ img {
   border-radius: 50%;
 
   fill: #afb1b8;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-soc-item + .team-soc-item {
   margin-left: 10px;
@@ -339,45 +387,31 @@ img {
   background-color: var(--accent-color);
 }
 /* ---------------------CLIENTS--------------------- */
-/* .client-icons {
-  padding: 16px 32px;
-} */
+
 .client-list {
   display: flex;
 }
-.client-item {
-  border: 1px solid rgba(175, 177, 184, 1);
-  border-radius: 4px;
-}
-.client-item + .client-item {
-  margin-left: 30px;
-  border: 1px solid rgba(175, 177, 184, 1);
-}
 .client-link {
   display: flex;
+  height: 92px;
+  width: 170px;
   justify-content: center;
   align-items: center;
-  width: 170px;
-  height: 92px;
-  fill: #afb1b8;
+  border: 1px solid rgba(175, 177, 184, 1);
+  border-radius: 4px;
+  fill: rgba(175, 177, 184, 1);
   padding: 16px 32px;
-}
-.client-item:hover {
-  border-color: var(--accent-color);
-}
-.client-item:hover .client-icons,
-.client-item:focus .client-icons {
-  fill: var(--accent-color);
-}
-.client-link:focus {
-  fill: var(--accent-color);
-}
-.client-item:focus .client-link {
-  border: 1px solid var(--accent-color);
-}
 
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .client-item + .client-item {
   margin-left: 30px;
+}
+.client-link:hover,
+.client-link:focus {
+  fill: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 /* ---------------------FOOTER--------------------- */
@@ -416,10 +450,14 @@ img {
 .address-mail {
   font-style: normal;
   color: var(--address-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-tel {
   font-style: normal;
   color: var(--address-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-mail:hover,
 .address-mail:focus,
@@ -475,6 +513,9 @@ img {
 .btn {
   background-color: var(--team-bcg-color);
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn:hover,
 .btn:focus {
@@ -516,8 +557,12 @@ img {
   letter-spacing: 0.03em;
   color: var(--main-text-color);
 }
-.hover-link .hover:hover,
-.hover-link .hover:focus {
+
+.hover-link .hover {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-link:hover .hover,
+.hover-link:focus .hover {
   box-shadow: 1px 4px 6px 0 rgba(0, 0, 0, 0.16), 0 4px 4px 0 rgba(0, 0, 0, 0.06),
     0 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
